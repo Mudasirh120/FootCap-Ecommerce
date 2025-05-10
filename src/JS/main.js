@@ -1,4 +1,4 @@
-import Products from "../api/products.json";
+import Products from "../../products.json";
 import showPopularProducts from "./productsPrinting";
 const navBar = document.querySelector(".main-nav");
 navBar.classList.add("sticky-nav");
