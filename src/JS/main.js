@@ -78,7 +78,7 @@ function showProductContainer(Products) {
       .querySelector(".product-view")
       .addEventListener("click", (e) => {
         modal.showModal();
-        showModalContent(modal, productClone, product, e.target);
+        showModalContent(modal, product, e.target);
       });
     let activeBrand = document.querySelector(".p-active").textContent;
     showPopularProducts(
@@ -90,7 +90,7 @@ function showProductContainer(Products) {
   });
 }
 showProductContainer(Products);
-function showModalContent(modal, productClone, product, button) {
+function showModalContent(modal, product, button) {
   const card = button.closest(".product-card");
   const ogPrice = card.querySelector(".original-price");
   const newPrice = card.querySelector(".product-price");
@@ -133,7 +133,7 @@ function showModalContent(modal, productClone, product, button) {
     let span = document.createElement("span");
     let image = document.createElement("img");
     span.classList.add("shoe-color", `color-${colors}`);
-    image.classList.add(`shoe-image-choice-${colors}`);
+    image.classList.add("shoe-image-choice", `shoe-image-choice-${colors}`);
     if (
       span.classList.contains("color-1") &&
       image.classList.contains("shoe-image-choice-1")
@@ -143,7 +143,7 @@ function showModalContent(modal, productClone, product, button) {
     }
     colors++;
     span.style.backgroundColor = c;
-    image.src = `../../public/images/Products/colors/${c}.jpg`;
+    image.src = `/images/Products/colors/${c}.jpg`;
     colorContainer.appendChild(span);
     imageContainer.appendChild(image);
   });
@@ -156,5 +156,55 @@ function showModalContent(modal, productClone, product, button) {
     sizes++;
     span.innerText = s;
     sizeContainer.appendChild(span);
+  });
+  let colorsList = document.querySelectorAll(".shoe-color");
+  colorsList.forEach((c) => {
+    c.addEventListener("click", () => {
+      colorsList.forEach((c) => {
+        c.classList.remove("current-shoe-color");
+      });
+      c.classList.add("current-shoe-color");
+    });
+  });
+  let sizesList = document.querySelectorAll(".shoe-size");
+  sizesList.forEach((s) => {
+    s.addEventListener("click", () => {
+      sizesList.forEach((s) => {
+        s.classList.remove("current-shoe-size");
+      });
+      s.classList.add("current-shoe-size");
+    });
+  });
+  let imagesList = document.querySelectorAll(".shoe-image-choice");
+  imagesList.forEach((i) => {
+    i.addEventListener("click", () => {
+      imagesList.forEach((i) => {
+        i.classList.remove("current-shoe-image");
+      });
+      i.classList.add("current-shoe-image");
+      modal.querySelector(".shoe-image").src = i.src;
+    });
+  });
+  let modalWishBtn = document.querySelector(".shoe-wishlist");
+  modalWishBtn.addEventListener("click", () => {
+    modalWishBtn.getAttribute("name") == "heart-outline"
+      ? modalWishBtn.setAttribute("name", "heart")
+      : modalWishBtn.setAttribute("name", "heart-outline");
+  });
+  let cartBtn = document.querySelector(".shoe-add-to-cart-btn");
+  cartBtn.addEventListener("click", () => {
+    let colored = document.querySelector(".current-shoe-color");
+    localStorage.setItem(
+      "cartProductLS",
+      JSON.stringify({
+        id: product.id,
+        color: getComputedStyle(colored).backgroundColor,
+        size: document.querySelector(".current-shoe-size").innerText,
+        quantity: document.querySelector(".shoe-quantity").innerText,
+        price:
+          document.querySelector(".discounted-shoe-price").innerText.slice(1) *
+          document.querySelector(".shoe-quantity").innerText,
+      })
+    );
   });
 }

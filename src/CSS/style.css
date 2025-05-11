@@ -697,12 +697,9 @@ body {
   border-radius: 1rem;
 }
 .shoe-wishlist {
-  color: var(--slate-gray);
+  color: var(--coral-pink);
   font-size: 3rem;
 }
 .shoe-wishlist:hover {
   color: var(--light-coral);
-}
-.hidden {
-  display: none;
 }
