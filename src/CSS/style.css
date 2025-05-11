@@ -508,7 +508,7 @@ body {
 }
 .modal {
   width: 80%;
-  height: 94vh;
+  height: 96vh;
   padding: 0rem 2rem;
   margin: auto;
   background-color: var(--pure-white);
