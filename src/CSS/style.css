@@ -1,13 +1,9 @@
 :root {
   --soft-overlay: hsla(185, 75%, 10%, 0.1);
-  --midnight-navy: hsl(217, 28%, 9%);
   --cool-gray: hsl(0, 0%, 74%);
-  --deep-indigo-overlay: hsla(230, 41%, 14%, 0.6);
   --coral-pink: hsl(5, 100%, 69%);
-  --charred-black: rgb(7, 6, 1);
   --light-silver: hsl(0, 0%, 88%);
   --opaque-black: hsla(0, 0%, 0%, 0.9);
-  --frost-white: hsl(200, 12%, 95%);
   --light-coral: hsl(5, 100%, 73%);
   --pure-white: hsl(0, 0%, 100%);
   --pure-black: hsl(0, 0%, 0%);

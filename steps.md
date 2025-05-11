@@ -1,40 +1,4 @@
 ====================================================================
-**_ Building an Ecommerce Website with Vanilla JavaScript _**
-====================================================================
-
-**_ Folder structure _**
-
-my-vanilla-js-project/
-├── public/
-│ ├── images/
-│ │ ├── logo.png
-│ │ └── background.jpg
-│ └── index.html
-├── src/
-│ ├── index.html
-│ ├── main.js
-│ ├── utils.js
-│ └── styles.css
-├── vite.config.js
-└── package.json
-
-**_ or we can also use _**
-
-my-vanilla-js-project/
-├── public/
-│ ├── images/
-│ │ ├── logo.png
-│ │ └── background.jpg
-│ └── index.html
-├── index.html
-├── main.js
-├── styles.css
-├── vite.config.js
-└── package.json
-
-## Step 1: Don't Forget To LIKE SHARE & SUBSCRIBE TO THAPA TECHNCIAL YOUTUBE CHANNEL 👉 https://www.youtube.com/thapatechnical
-
-====================================================================
 **_ Steps to Create a Function for Displaying Product Containers _**
 ====================================================================
 
