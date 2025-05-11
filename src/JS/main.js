@@ -6,6 +6,11 @@ let popularProducts = document.querySelector(".popular-products");
 let specialProducts = document.querySelector(".special-cards");
 let productCard = document.querySelector(".card");
 let popularSelect = document.querySelectorAll(".p-select");
+let modal = document.querySelector(".modal");
+let closeModal = document.querySelector(".close-modal");
+closeModal.addEventListener("click", () => {
+  modal.close();
+});
 function popularBrandSelect() {
   popularSelect.forEach((brand) => {
     brand.addEventListener("click", (e) => {
@@ -28,14 +33,18 @@ function showProductContainer(Products) {
       id,
       name,
       brand,
+      category,
       originalPrice,
       discountPercentage,
       image,
+      availableColors,
+      availableSizes,
       gender,
       tag,
       quantity,
       totalSales,
       totalBought,
+      totalManufactured,
     } = product;
     const productClone = document.importNode(productCard.content, true);
     productClone.querySelector(".product-card").setAttribute("id", `${id}`);
@@ -65,6 +74,12 @@ function showProductContainer(Products) {
         (originalPrice * discountPercentage) / 100
       ).toFixed(2)}`;
     }
+    productClone
+      .querySelector(".product-view")
+      .addEventListener("click", (e) => {
+        modal.showModal();
+        showModalContent(modal, productClone, product, e.target);
+      });
     let activeBrand = document.querySelector(".p-active").textContent;
     showPopularProducts(
       popularProducts,
@@ -75,3 +90,71 @@ function showProductContainer(Products) {
   });
 }
 showProductContainer(Products);
+function showModalContent(modal, productClone, product, button) {
+  const card = button.closest(".product-card");
+  const ogPrice = card.querySelector(".original-price");
+  const newPrice = card.querySelector(".product-price");
+  let colors = 1;
+  const colorContainer = document.querySelector(".available-colors");
+  colorContainer.innerHTML = "";
+  let sizes = 1;
+  const sizeContainer = document.querySelector(".available-sizes");
+  sizeContainer.innerHTML = "";
+  const imageContainer = document.querySelector(".shoe-image-choices");
+  imageContainer.innerHTML = "";
+  const plusButton = document.querySelector(".increase-quantity");
+  const minusButton = document.querySelector(".decrease-quantity");
+  const shoeQuantityText = document.querySelector(".shoe-quantity");
+  let shoeQuantity = 1;
+  shoeQuantityText.innerText = shoeQuantity;
+  plusButton.addEventListener("click", () => {
+    if (shoeQuantity < product.quantity) {
+      shoeQuantity++;
+      shoeQuantityText.innerText = shoeQuantity;
+    } else {
+      shoeQuantityText.innerText = product.quantity;
+    }
+  });
+  minusButton.addEventListener("click", () => {
+    if (shoeQuantity > 1) {
+      shoeQuantity--;
+      shoeQuantityText.innerText = shoeQuantity;
+    } else {
+      shoeQuantityText.innerText = 1;
+    }
+  });
+  modal.querySelector(".shoe-image").src = product.image;
+  modal.querySelector(".shoe-brand").innerText = product.brand[1];
+  modal.querySelector(".shoe-title").innerText = product.name;
+  modal.querySelector(".discounted-shoe-price").innerText = newPrice.innerText;
+  modal.querySelector(".original-shoe-price").innerText = ogPrice.innerText;
+  modal.querySelector(".shoe-stock-quantity").innerText = product.quantity;
+  product.availableColors.forEach((c) => {
+    let span = document.createElement("span");
+    let image = document.createElement("img");
+    span.classList.add("shoe-color", `color-${colors}`);
+    image.classList.add(`shoe-image-choice-${colors}`);
+    if (
+      span.classList.contains("color-1") &&
+      image.classList.contains("shoe-image-choice-1")
+    ) {
+      span.classList.add("current-shoe-color");
+      image.classList.add("current-shoe-image");
+    }
+    colors++;
+    span.style.backgroundColor = c;
+    image.src = `../../public/images/Products/colors/${c}.jpg`;
+    colorContainer.appendChild(span);
+    imageContainer.appendChild(image);
+  });
+  product.availableSizes.forEach((s) => {
+    let span = document.createElement("span");
+    span.classList.add("shoe-size", `size-${sizes}`);
+    if (span.classList.contains("size-1")) {
+      span.classList.add("current-shoe-size");
+    }
+    sizes++;
+    span.innerText = s;
+    sizeContainer.appendChild(span);
+  });
+}

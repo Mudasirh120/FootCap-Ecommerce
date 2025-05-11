@@ -116,7 +116,10 @@
           <div class="product-icons">
             <ion-icon name="cart-outline" class="product-icon"></ion-icon>
             <ion-icon name="heart-outline" class="product-icon"></ion-icon>
-            <ion-icon name="eye-outline" class="product-icon"></ion-icon>
+            <ion-icon
+              name="eye-outline"
+              class="product-icon product-view"
+            ></ion-icon>
           </div>
           <div class="product-tag"></div>
         </div>
@@ -222,6 +225,57 @@
       </div>
     </section>
     <section class="insta-section"></section>
+    <dialog class="modal">
+      <div class="close-btn">
+        <ion-icon name="close-outline" class="close-modal"></ion-icon>
+      </div>
+      <div class="view-shoe">
+        <div class="shoe-image-box">
+          <img src="/images/Products/product-1.jpg" alt="" class="shoe-image" />
+          <div class="shoe-image-choices"></div>
+        </div>
+        <div class="shoe-text-box">
+          <div class="shoe-info">
+            <h4 class="shoe-brand"></h4>
+            <h2 class="shoe-title"></h2>
+            <div class="shoe-price">
+              <p class="discounted-shoe-price"></p>
+              <p class="original-shoe-price"></p>
+            </div>
+            <span class="shoe-stock-box">
+              <p class="shoe-stock">Stock</p>
+              <p class="shoe-stock-quantity"></p>
+            </span>
+          </div>
+          <div class="shoe-choices">
+            <div class="shoe-colors">
+              <p class="available-text">Available Colors</p>
+              <div class="available-colors"></div>
+            </div>
+            <div class="shoe-sizes">
+              <p class="available-text">Available Sizes</p>
+              <div class="available-sizes"></div>
+            </div>
+          </div>
+          <div class="shoe-buy-options">
+            <div class="shoe-quantity-box">
+              <span class="increase-quantity quantity-btn"
+                ><ion-icon name="add-outline"></ion-icon
+              ></span>
+              <span class="shoe-quantity">1</span>
+              <span class="decrease-quantity quantity-btn"
+                ><ion-icon name="remove-outline"></ion-icon
+              ></span>
+            </div>
+            <div class="shoe-add-to-cart-btn">ADD TO CART</div>
+            <div class="add-to-wishlist">
+              <ion-icon name="heart-outline" class="shoe-wishlist"></ion-icon>
+              <ion-icon name="heart" class="shoe-wishlist hidden"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
     <!-- Ionicons -->
     <script
       type="module"
