@@ -107,26 +107,40 @@ export default function showModalContent(modal, product, button) {
       modalWishBtn.setAttribute("name", "heart");
     }
   });
-  modalWishBtn.addEventListener("click", (e) => {
-    toastMsg(
-      e.target,
-      modal.querySelector(".shoe-image").src,
-      modal.querySelector(".shoe-brand").innerText,
-      modal.querySelector(".shoe-title").innerText
-    );
-    modalWishBtn.getAttribute("name") == "heart-outline"
-      ? addWishToLocal(product, modalWishBtn)
-      : removeWishFromLocal(product, modalWishBtn);
-  });
-  let cartBtn = document.querySelector(".shoe-add-to-cart-btn");
-  cartBtn.addEventListener("click", (e) => {
-    let colored = document.querySelector(".current-shoe-color");
-    addCartToLocal(product, colored);
-    toastMsg(
-      e.target,
-      modal.querySelector(".shoe-image").src,
-      modal.querySelector(".shoe-brand").innerText,
-      modal.querySelector(".shoe-title").innerText
-    );
-  });
+  modalWishBtn.addEventListener(
+    "click",
+    (e) => {
+      toastMsg(
+        e.target,
+        modal.querySelector(".shoe-image").src,
+        modal.querySelector(".shoe-brand").innerText,
+        modal.querySelector(".shoe-title").innerText
+      );
+      modalWishBtn.getAttribute("name") == "heart-outline"
+        ? addWishToLocal(product, modalWishBtn)
+        : removeWishFromLocal(product, modalWishBtn);
+    },
+    { once: true }
+  );
+  let cartBtn = modal.querySelector(".shoe-add-to-cart-btn");
+  cartBtn.addEventListener(
+    "click",
+    (e) => {
+      let colors = modal.querySelector(".current-shoe-color");
+      let colored = getComputedStyle(colors).backgroundColor;
+      let sized = parseInt(modal.querySelector(".current-shoe-size").innerText);
+      let priced = parseFloat(
+        modal.querySelector(".discounted-shoe-price").innerText.replace("$", "")
+      );
+      let quantized = parseInt(modal.querySelector(".shoe-quantity").innerText);
+      addCartToLocal(product, colored, sized, priced, quantized);
+      toastMsg(
+        e.target,
+        modal.querySelector(".shoe-image").src,
+        modal.querySelector(".shoe-brand").innerText,
+        modal.querySelector(".shoe-title").innerText
+      );
+    },
+    { once: true }
+  );
 }

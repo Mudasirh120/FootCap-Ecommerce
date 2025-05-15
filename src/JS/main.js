@@ -1,10 +1,11 @@
 import Products from "../../products.json";
 import showPopularProducts from "./productsPrinting";
 import showModalContent from "./modal";
-import { updateWishCount } from "./updateCount";
+import { updateWishCount, updateCartCount } from "./updateCount";
 const navBar = document.querySelector(".main-nav");
 navBar.classList.add("sticky-nav");
 export let wishBtn = document.querySelector(".wish-no");
+export let cartBtn = document.querySelector(".cart-no");
 let popularProducts = document.querySelector(".popular-products");
 let specialProducts = document.querySelector(".special-cards");
 let productCard = document.querySelector(".card");
@@ -98,4 +99,5 @@ function showProductContainer(Products) {
   });
 }
 updateWishCount();
+updateCartCount();
 showProductContainer(Products);

@@ -1,16 +1,34 @@
-import { updateWishCount } from "./updateCount";
-export function addCartToLocal(product, colored) {
+import { updateWishCount, updateCartCount } from "./updateCount";
+export function addCartToLocal(product, colored, sized, priced, quantized) {
+  console.log("Adding to cart:", product.id, colored, sized, quantized);
   let cart = fetchCartFromLocal();
-  cart.push({
-    id: product.id,
-    color: getComputedStyle(colored).backgroundColor,
-    size: document.querySelector(".current-shoe-size").innerText,
-    quantity: document.querySelector(".shoe-quantity").innerText,
-    price:
-      document.querySelector(".discounted-shoe-price").innerText.slice(1) *
-      document.querySelector(".shoe-quantity").innerText,
+  const existingItem = cart.find(
+    (c) => c.id === product.id && c.color === colored && c.size === sized
+  );
+  if (!existingItem) {
+    cart.push({
+      id: product.id,
+      color: colored,
+      size: sized,
+      quantity: quantized,
+      price: priced,
+    });
+  } else {
+    existingItem.quantity += quantized;
+    existingItem.price = priced * existingItem.quantity;
+  }
+  localStorage.setItem("cartItem", JSON.stringify(cart));
+  updateCartCount();
+}
+export function removeCartFromLocal(product) {
+  let cart = fetchCartFromLocal();
+  cart.forEach((c, i) => {
+    if (c.id === product.id) {
+      cart.splice(i, 1);
+    }
   });
   localStorage.setItem("cartItem", JSON.stringify(cart));
+  updateCartCount();
 }
 export function addWishToLocal(product, modalWishBtn) {
   let wish = fetchWishFromLocal();
@@ -41,7 +59,7 @@ export function removeWishFromLocal(product, modalWishBtn) {
   localStorage.setItem("wishItem", JSON.stringify(wish));
   updateWishCount();
 }
-function fetchCartFromLocal() {
+export function fetchCartFromLocal() {
   return JSON.parse(localStorage.getItem("cartItem") || "[]");
 }
 export function fetchWishFromLocal() {

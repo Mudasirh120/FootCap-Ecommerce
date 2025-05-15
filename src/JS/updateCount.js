@@ -1,9 +1,22 @@
-import { wishBtn } from "./main";
+import { wishBtn, cartBtn } from "./main";
+import { fetchCartFromLocal, fetchWishFromLocal } from "./localStorage";
 export function updateWishCount() {
-  let wish = JSON.parse(localStorage.getItem("wishItem") || "[]");
+  let wish = fetchWishFromLocal();
   if (wish) {
     wishBtn.innerText = wish.length;
   } else {
     wishBtn.innerText = 0;
+  }
+}
+export function updateCartCount() {
+  let cart = fetchCartFromLocal();
+  let cartCount = 0;
+  cart.forEach((c) => {
+    cartCount += parseInt(c.quantity);
+  });
+  if (cartCount != 0) {
+    cartBtn.innerText = cartCount;
+  } else {
+    cartBtn.innerText = 0;
   }
 }
