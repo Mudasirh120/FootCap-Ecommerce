@@ -511,11 +511,14 @@ body {
   height: 96vh;
   padding: 0rem 2rem;
   margin: auto;
-  background-color: var(--pure-white);
   border: none;
   outline: none;
   border-radius: 1.4rem;
   overflow: hidden;
+}
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 .close-btn {
   width: 100%;
@@ -702,4 +705,41 @@ body {
 }
 .shoe-wishlist:hover {
   color: var(--light-coral);
+}
+.toast-msg {
+  border: none;
+  outline: none;
+  border-radius: 1.4rem;
+  padding: 1rem 2rem;
+  top: 10%;
+  left: 74%;
+  box-shadow: 1px 1px 5px var(--slate-gray);
+}
+.toast-msg::backdrop {
+  background: none;
+  backdrop-filter: none;
+}
+.toast {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.toast-cart-img {
+  height: 7rem;
+}
+.toast-cart-text {
+  display: flex;
+  gap: 0.4rem;
+  font-family: var(--ff-roboto);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--slate-gray);
+}
+.toast-brand {
+  font-weight: 600;
+  color: var(--coral-pink);
+}
+.toast-shoe {
+  font-weight: 600;
+  color: var(--coral-pink);
 }
