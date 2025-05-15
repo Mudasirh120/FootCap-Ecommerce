@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.svg" type="image/svg" />
-    <title>FootCap - Find your footwear</title>
+    <title>WishList - Find your footwear</title>
     <!-- custom css -->
     <link rel="stylesheet" href="src/CSS/style.css" />
+    <link rel="stylesheet" href="src/CSS/wishlist.css" />
     <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,11 +15,10 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
-    <!-- preload banner -->
   </head>
   <body>
     <section class="main-nav">
-      <a class="nav-logo" href="#">
+      <a class="nav-logo" href="index.html">
         <img src="/images/logo.svg" alt="FootCap logo" class="main-logo" />
       </a>
       <nav class="nav-bar">
@@ -45,58 +45,9 @@
         </a>
       </div>
     </section>
-    <section class="hero-section">
-      <div class="hero-text">
-        <h1 class="hero-head-one">New Summer</h1>
-        <h1 class="hero-head-two">Shoes Collection</h1>
-        <p class="hero-para">
-          Competently expedite alternative benefits whereas leading-edge
-          catalysts for change. Globally leverage existing an expanded array of
-          leadership.
-        </p>
-        <button class="hero-btn btn">
-          Shop Now
-          <span
-            ><ion-icon
-              name="arrow-forward-outline"
-              class="hero-btn-icon"
-            ></ion-icon
-          ></span>
-        </button>
-      </div>
-    </section>
-    <section class="collection-section">
-      <div class="men-c c-card">
-        <h3 class="heading-c">Men Collections</h3>
-        <button class="btn c-btn">
-          Explore All
-          <span
-            ><ion-icon name="arrow-forward-outline" class="c-icon"></ion-icon
-          ></span>
-        </button>
-      </div>
-      <div class="women-c c-card">
-        <h3 class="heading-c">Women Collections</h3>
-        <button class="btn c-btn">
-          Explore All
-          <span
-            ><ion-icon name="arrow-forward-outline" class="c-icon"></ion-icon
-          ></span>
-        </button>
-      </div>
-      <div class="sport-c c-card">
-        <h3 class="heading-c">Sports Collections</h3>
-        <button class="btn c-btn">
-          Explore All
-          <span
-            ><ion-icon name="arrow-forward-outline" class="c-icon"></ion-icon
-          ></span>
-        </button>
-      </div>
-    </section>
-    <section class="popular-section">
+    <section class="wishlist-section">
       <div class="p-center">
-        <h2 class="heading-p">Popular Products</h2>
+        <h2 class="heading-p">WishList Products</h2>
         <div class="selection-p">
           <span class="p-active p-select">All</span>
           <span class="p-select">Nike</span>
@@ -106,7 +57,7 @@
           <span class="p-select">Reebok</span>
         </div>
       </div>
-      <div class="popular-products"></div>
+      <div class="wishes-products"></div>
     </section>
     <template class="card">
       <div class="product-card">
@@ -139,103 +90,6 @@
         </div>
       </div>
     </template>
-    <section class="sale-section">
-      <div class="sale-card sale-card-one">
-        <p class="sale-text">Adidas Shoes</p>
-        <h4 class="sale-heading">The Summer Sale Off 50%</h4>
-        <button class="sale-button btn">
-          Shop Now
-          <span
-            ><ion-icon name="arrow-forward-outline" class="nav-icon"></ion-icon
-          ></span>
-        </button>
-      </div>
-      <div class="sale-card sale-card-two">
-        <p class="sale-text">Nike Shoes</p>
-        <h4 class="sale-heading">Makes Yourself Keep Sporty</h4>
-        <button class="sale-button btn">
-          Shop Now
-          <span
-            ><ion-icon name="arrow-forward-outline" class="nav-icon"></ion-icon
-          ></span>
-        </button>
-      </div>
-    </section>
-    <section class="limited-section">
-      <div class="limited-all">
-        <h3 class="limited-all-heading">Special Edition</h3>
-        <button class="limited-all-button btn">
-          Explore All
-          <span
-            ><ion-icon name="arrow-forward-outline" class="nav-icon"></ion-icon
-          ></span>
-        </button>
-      </div>
-      <div class="brand-special">
-        <h2 class="special-heading">Limited left</h2>
-        <hr class="line" />
-        <div class="special-cards"></div>
-      </div>
-    </section>
-    <section class="services-section">
-      <div class="service-card">
-        <div class="service-image">
-          <img src="/images/service-1.png" alt="" />
-        </div>
-        <div class="service-text-box">
-          <h4 class="service-head">Free Shipping</h4>
-          <p class="service-text">
-            All orders over <span class="service-price">$150</span>
-          </p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-image">
-          <img src="/images/service-2.png" alt="" />
-        </div>
-        <div class="service-text-box">
-          <h4 class="service-head">Instant Payment</h4>
-          <p class="service-text">
-            <span class="service-price">100%</span> secure payments
-          </p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-image">
-          <img src="/images/service-3.png" alt="" />
-        </div>
-        <div class="service-text-box">
-          <h4 class="service-head">Free Returns</h4>
-          <p class="service-text">
-            Money back in <span class="service-price">30</span> days
-          </p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-image">
-          <img src="/images/service-4.png" alt="" />
-        </div>
-        <div class="service-text-box">
-          <h4 class="service-head">Quick Support</h4>
-          <p class="service-text">
-            Get <span class="service-price">24/7</span> support
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="insta-section">
-      <img src="/images/insta-1.jpg" alt="" />
-      <img src="/images/insta-2.jpg" alt="" />
-      <img src="/images/insta-3.jpg" alt="" />
-      <img src="/images/insta-4.jpg" alt="" />
-      <img src="/images/insta-5.jpg" alt="" />
-      <img src="/images/insta-6.jpg" alt="" />
-      <img src="/images/insta-7.jpg" alt="" />
-      <img src="/images/insta-8.jpg" alt="" />
-    </section>
-    <section class="socials-section">
-      <img src="/images/logo.svg" alt="" class="main-logo" />
-    </section>
     <dialog class="modal">
       <div class="close-btn">
         <ion-icon name="close-outline" class="close-modal"></ion-icon>
@@ -305,6 +159,6 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <!-- Custom JS -->
-    <script type="module" src="src/JS/main.js"></script>
+    <script type="module" src="src/JS/wishlistPageRender.js"></script>
   </body>
 </html>

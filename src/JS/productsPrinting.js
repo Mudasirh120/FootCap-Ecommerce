@@ -21,3 +21,17 @@ export default function showPopularProducts(
     specialNumber++;
   }
 }
+export function showWishesProducts(
+  wishes,
+  wishesProduct,
+  productClone,
+  activeBrand
+) {
+  wishes.forEach((w) => {
+    if (
+      w.id === productClone.querySelector(".product-card").getAttribute("id")
+    ) {
+      wishesProduct.append(productClone);
+    }
+  });
+}

@@ -1,41 +1,44 @@
 import Products from "../../products.json";
-import showPopularProducts from "./productsPrinting";
 import showModalContent from "./modal";
-import { updateWishCount, updateCartCount } from "./updateCount";
-const navBar = document.querySelector(".main-nav");
+import { showWishesProducts } from "./productsPrinting";
+let navBar = document.querySelector(".main-nav");
 navBar.classList.add("sticky-nav");
-export let wishBtn = document.querySelector(".wish-no");
-export let cartBtn = document.querySelector(".cart-no");
-let popularProducts = document.querySelector(".popular-products");
-let specialProducts = document.querySelector(".special-cards");
-let productCard = document.querySelector(".card");
-let popularSelect = document.querySelectorAll(".p-select");
+let cartNo = document.querySelector(".cart-no");
+let wishNo = document.querySelector(".wish-no");
 let modal = document.querySelector(".modal");
-let closeModal = document.querySelector(".close-modal");
-closeModal.addEventListener(
-  "click",
-  () => {
-    modal.close();
-  },
-  { once: true }
-);
-function popularBrandSelect() {
-  popularSelect.forEach((brand) => {
+function fetchCartFromLocal() {
+  return JSON.parse(localStorage.getItem("cartItem") || "[]");
+}
+function fetchWishFromLocal() {
+  return JSON.parse(localStorage.getItem("wishItem") || "[]");
+}
+let wishes = fetchWishFromLocal();
+let carts = fetchCartFromLocal();
+let cartCount = 0;
+carts.forEach((c) => {
+  cartCount += c.quantity;
+});
+wishNo.innerHTML = wishes.length;
+cartNo.innerHTML = cartCount;
+let brandSelect = document.querySelectorAll(".p-select");
+let wishesProduct = document.querySelector("wishes-products");
+function wishesBrandSelect() {
+  brandSelect.forEach((brand) => {
     brand.addEventListener("click", (e) => {
-      popularSelect.forEach((b) => {
+      brandSelect.forEach((b) => {
         b.classList.remove("p-active");
       });
       e.target.classList.add("p-active");
-      showProductContainer(Products);
+      showWishesContainer(Products);
     });
   });
 }
-popularBrandSelect();
-function showProductContainer(Products) {
+wishesBrandSelect();
+function showWishesContainer(Products) {
   if (!Products) {
     return;
   }
-  popularProducts.replaceChildren("");
+  wishesProduct.replaceChildren("");
   Products.forEach((product) => {
     let {
       id,
@@ -94,14 +97,7 @@ function showProductContainer(Products) {
         showModalContent(modal, product, e.target);
       });
     let activeBrand = document.querySelector(".p-active").textContent;
-    showPopularProducts(
-      popularProducts,
-      specialProducts,
-      productClone,
-      activeBrand
-    );
+    showWishesProducts(wishes, wishesProduct, productClone, activeBrand);
   });
 }
-updateWishCount();
-updateCartCount();
-showProductContainer(Products);
+showWishesContainer(Products);
