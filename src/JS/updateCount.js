@@ -1,6 +1,5 @@
-import { wishBtn, cartBtn } from "./main";
 import { fetchCartFromLocal, fetchWishFromLocal } from "./localStorage";
-export function updateWishCount() {
+export function updateWishCount(wishBtn) {
   let wish = fetchWishFromLocal();
   if (wish) {
     wishBtn.innerText = wish.length;
@@ -8,7 +7,7 @@ export function updateWishCount() {
     wishBtn.innerText = 0;
   }
 }
-export function updateCartCount() {
+export function updateCartCount(cartBtn) {
   let cart = fetchCartFromLocal();
   let cartCount = 0;
   cart.forEach((c) => {

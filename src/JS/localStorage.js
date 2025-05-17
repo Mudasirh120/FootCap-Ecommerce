@@ -1,5 +1,12 @@
 import { updateWishCount, updateCartCount } from "./updateCount";
-export function addCartToLocal(product, colored, sized, priced, quantized) {
+export function addCartToLocal(
+  product,
+  colored,
+  sized,
+  priced,
+  quantized,
+  cartNo
+) {
   console.log("Adding to cart:", product.id, colored, sized, quantized);
   let cart = fetchCartFromLocal();
   const existingItem = cart.find(
@@ -18,9 +25,9 @@ export function addCartToLocal(product, colored, sized, priced, quantized) {
     existingItem.price = priced * existingItem.quantity;
   }
   localStorage.setItem("cartItem", JSON.stringify(cart));
-  updateCartCount();
+  updateCartCount(cartNo);
 }
-export function removeCartFromLocal(product) {
+export function removeCartFromLocal(product, cartNo) {
   let cart = fetchCartFromLocal();
   cart.forEach((c, i) => {
     if (c.id === product.id) {
@@ -28,9 +35,9 @@ export function removeCartFromLocal(product) {
     }
   });
   localStorage.setItem("cartItem", JSON.stringify(cart));
-  updateCartCount();
+  updateCartCount(cartNo);
 }
-export function addWishToLocal(product, modalWishBtn) {
+export function addWishToLocal(product, modalWishBtn, wishNo) {
   let wish = fetchWishFromLocal();
   let alreadyExist = false;
   wish.forEach((w) => {
@@ -46,9 +53,9 @@ export function addWishToLocal(product, modalWishBtn) {
     modalWishBtn.setAttribute("name", "heart");
   }
   localStorage.setItem("wishItem", JSON.stringify(wish));
-  updateWishCount();
+  updateWishCount(wishNo);
 }
-export function removeWishFromLocal(product, modalWishBtn) {
+export function removeWishFromLocal(product, modalWishBtn, wishNo) {
   let wish = fetchWishFromLocal();
   wish.forEach((w, i) => {
     if (w.id == product.id) {
@@ -57,7 +64,7 @@ export function removeWishFromLocal(product, modalWishBtn) {
     }
   });
   localStorage.setItem("wishItem", JSON.stringify(wish));
-  updateWishCount();
+  updateWishCount(wishNo);
 }
 export function fetchCartFromLocal() {
   return JSON.parse(localStorage.getItem("cartItem") || "[]");

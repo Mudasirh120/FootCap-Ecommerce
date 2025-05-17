@@ -1,10 +1,10 @@
-.wishlist-section {
+.cart-section {
   width: 100%;
   margin-top: 4rem;
   margin-bottom: 12rem;
   padding: 0rem 6rem;
 }
-.wishes-products {
+.cart-products {
   width: 100%;
   display: grid;
   align-self: center;

@@ -5,7 +5,13 @@ import {
   removeWishFromLocal,
   fetchWishFromLocal,
 } from "./localStorage";
-export default function showModalContent(modal, product, button) {
+export default function showModalContent(
+  modal,
+  product,
+  button,
+  wishNo,
+  cartNo
+) {
   const card = button.closest(".product-card");
   const ogPrice = card.querySelector(".original-price");
   const newPrice = card.querySelector(".product-price");
@@ -100,10 +106,10 @@ export default function showModalContent(modal, product, button) {
       modal.querySelector(".shoe-image").src = i.src;
     });
   });
-  let modalWishBtn = document.querySelector(".shoe-wishlist");
+  let modalWishBtn = modal.querySelector(".shoe-wishlist");
   let wishes = fetchWishFromLocal();
   wishes.forEach((w) => {
-    if (w.id === product.id) {
+    if (w.id == product.id) {
       modalWishBtn.setAttribute("name", "heart");
     }
   });
@@ -117,8 +123,9 @@ export default function showModalContent(modal, product, button) {
         modal.querySelector(".shoe-title").innerText
       );
       modalWishBtn.getAttribute("name") == "heart-outline"
-        ? addWishToLocal(product, modalWishBtn)
-        : removeWishFromLocal(product, modalWishBtn);
+        ? addWishToLocal(product, modalWishBtn, wishNo)
+        : removeWishFromLocal(product, modalWishBtn, wishNo);
+      modal.showModal();
     },
     { once: true }
   );
@@ -133,13 +140,22 @@ export default function showModalContent(modal, product, button) {
         modal.querySelector(".discounted-shoe-price").innerText.replace("$", "")
       );
       let quantized = parseInt(modal.querySelector(".shoe-quantity").innerText);
-      addCartToLocal(product, colored, sized, priced, quantized);
+      addCartToLocal(product, colored, sized, priced, quantized, cartNo);
       toastMsg(
         e.target,
         modal.querySelector(".shoe-image").src,
         modal.querySelector(".shoe-brand").innerText,
         modal.querySelector(".shoe-title").innerText
       );
+      modal.showModal();
+    },
+    { once: true }
+  );
+  let closeModal = modal.querySelector(".close-modal");
+  closeModal.addEventListener(
+    "click",
+    () => {
+      modal.close();
     },
     { once: true }
   );

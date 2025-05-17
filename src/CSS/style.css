@@ -730,7 +730,7 @@ body {
   border-radius: 1rem;
 }
 .shoe-wishlist {
-  color: var(--coral-pink);
+  color: var(--slate-gray);
   font-size: 3rem;
   cursor: pointer;
 }
