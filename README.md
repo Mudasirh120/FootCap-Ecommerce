@@ -12,4 +12,4 @@ Footcap is fully responsive ecommerce website, <br />Responsive for all devices,
 
 ### Demo Screeshot
 
-![Footcap Desktop Demo](./readme-images/desktop.png "Desktop Demo")
+![Footcap Desktop Demo](./src/Assets/readme-images/desktop.png "Desktop Demo")
