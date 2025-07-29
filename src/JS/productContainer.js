@@ -3,8 +3,8 @@ import {
   showSpecialProducts,
   showWishesProducts,
   showCartProducts,
-} from "./productsPrinting";
-import showModalContent from "./modal";
+} from "./productsPrinting.js";
+import showModalContent from "./modal.js";
 export default function showProductContainer(
   productsContainer,
   Products,

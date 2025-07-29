@@ -4,7 +4,7 @@ import {
   addWishToLocal,
   removeWishFromLocal,
   fetchWishFromLocal,
-} from "./localStorage";
+} from "./localStorage.js";
 export default function showModalContent(
   modal,
   product,

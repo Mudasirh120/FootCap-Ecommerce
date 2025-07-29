@@ -1,4 +1,4 @@
-import { fetchWishFromLocal, fetchCartFromLocal } from "./localStorage";
+import { fetchWishFromLocal, fetchCartFromLocal } from "./localStorage.js";
 let specialNumber = 0;
 export function showPopularProducts(
   productContainer,

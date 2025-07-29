@@ -1,4 +1,4 @@
-import showProductContainer from "./productContainer";
+import showProductContainer from "./productContainer.js";
 export default function brandSelect(
   brandSelect,
   popularProducts,

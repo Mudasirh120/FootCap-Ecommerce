@@ -1,7 +1,8 @@
-import Products from "../../products.json";
-import brandSelect from "./brandSelect";
-import showProductContainer from "./productContainer";
-import { updateWishCount, updateCartCount } from "./updateCount";
+import fetchProducts from "./fetchProdcuts.js";
+const Products = fetchProducts();
+import brandSelect from "./brandSelect.js";
+import showProductContainer from "./productContainer.js";
+import { updateWishCount, updateCartCount } from "./updateCount.js";
 let navBar = document.querySelector(".main-nav");
 navBar.classList.add("sticky-nav");
 let cartNo = document.querySelector(".cart-no");

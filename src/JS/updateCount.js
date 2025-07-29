@@ -1,4 +1,4 @@
-import { fetchCartFromLocal, fetchWishFromLocal } from "./localStorage";
+import { fetchCartFromLocal, fetchWishFromLocal } from "./localStorage.js";
 export function updateWishCount(wishBtn) {
   let wish = fetchWishFromLocal();
   if (wish) {

@@ -1,4 +1,4 @@
-import { updateWishCount, updateCartCount } from "./updateCount";
+import { updateWishCount, updateCartCount } from "./updateCount.js";
 export function addCartToLocal(
   product,
   colored,

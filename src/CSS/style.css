@@ -121,7 +121,7 @@ body {
   padding: 0rem 0rem 0rem 20rem;
   width: 100%;
   height: calc(105vh - 9rem);
-  background-image: url("/images/hero-banner.png");
+  background-image: url("/src/Assets/images/hero-banner.png");
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -194,13 +194,13 @@ body {
   margin-bottom: 2rem;
 }
 .men-c {
-  background-image: url("/images/collection-1.jpg");
+  background-image: url("/src/Assets/images/collection-1.jpg");
 }
 .women-c {
-  background-image: url("/images/collection-2.jpg");
+  background-image: url("/src/Assets/images/collection-2.jpg");
 }
 .sport-c {
-  background-image: url("/images/collection-3.jpg");
+  background-image: url("/src/Assets/images/collection-3.jpg");
 }
 .c-card {
   background-position: center;
@@ -409,10 +409,10 @@ body {
   font-family: var(--ff-josefin-sans);
 }
 .sale-card-one {
-  background-image: url("/images/cta-1.jpg");
+  background-image: url("/src/Assets/images/cta-1.jpg");
 }
 .sale-card-two {
-  background-image: url("/images/cta-2.jpg");
+  background-image: url("/src/Assets/images/cta-2.jpg");
 }
 .sale-text {
   font-family: inherit;
@@ -444,7 +444,7 @@ body {
   margin-bottom: 12rem;
 }
 .limited-all {
-  background-image: url("/images/special-banner.jpg");
+  background-image: url("/src/Assets/images/special-banner.jpg");
   background-position: center center;
   display: flex;
   flex-direction: column;
