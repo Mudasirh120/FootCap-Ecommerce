@@ -1,5 +1,8 @@
 import fetchProducts from "./fetchProdcuts.js";
-const Products = fetchProducts();
+let Products;
+const getProducts = async () => {
+  Products = await fetchProducts();
+};
 import brandSelect from "./brandSelect.js";
 import showProductContainer from "./productContainer.js";
 import { updateWishCount, updateCartCount } from "./updateCount.js";

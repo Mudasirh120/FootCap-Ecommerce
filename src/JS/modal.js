@@ -1,4 +1,4 @@
-import toastMsg from "./toast";
+import toastMsg from "./toast.js";
 import {
   addCartToLocal,
   addWishToLocal,
