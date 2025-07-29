@@ -1,13 +1,12 @@
-let data = [];
 const fetchProducts = async () => {
   try {
     const res = await fetch("../../products.json");
-    console.log("raw", res);
-    data = await res.json();
-    console.log("data", data);
+    const data = await res.json();
+    console.log("data:", data);
+    return data;
   } catch (error) {
-    console.log("Error fetching products.", error);
+    console.error("Error fetching products:", error);
+    return [];
   }
-  return data;
 };
 export default fetchProducts;
