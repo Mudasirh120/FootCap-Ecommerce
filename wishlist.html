@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../Assets/favicon.svg" type="image/svg" />
+    <link
+      rel="shortcut icon"
+      href="./src/Assets/favicon.svg"
+      type="image/svg"
+    />
     <title>WishList - Find your footwear</title>
     <!-- custom css -->
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/cartpage.css" />
+    <link rel="stylesheet" href="./src/CSS/style.css" />
+    <link rel="stylesheet" href="./src/CSS/wishlist.css" />
     <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,9 +22,9 @@
   </head>
   <body>
     <section class="main-nav">
-      <a class="nav-logo" href="../../index.html">
+      <a class="nav-logo" href="./index.html">
         <img
-          src="../Assets/images/logo.svg"
+          src="./src/Assets/images/logo.svg"
           alt="FootCap logo"
           class="main-logo"
         />
@@ -39,19 +43,19 @@
       <div class="nav-icons">
         <ion-icon name="search-outline" class="nav-icon"></ion-icon>
         <ion-icon name="person-outline" class="nav-icon"></ion-icon>
-        <a class="nav-no-icon" href="./wishlist.html">
+        <a class="nav-no-icon" href="#">
           <ion-icon name="heart-outline" class="nav-icon"></ion-icon>
           <span class="wish-no">0</span>
         </a>
-        <a class="nav-no-icon" href="#">
+        <a class="nav-no-icon" href="./cartPage.html">
           <ion-icon name="bag-outline" class="nav-icon"></ion-icon>
           <span class="cart-no">0</span>
         </a>
       </div>
     </section>
-    <section class="cart-section">
+    <section class="wishlist-section">
       <div class="p-center">
-        <h2 class="heading-p">Cart Products</h2>
+        <h2 class="heading-p">WishList Products</h2>
         <div class="selection-p">
           <span class="p-active p-select">All</span>
           <span class="p-select">Nike</span>
@@ -61,7 +65,7 @@
           <span class="p-select">Reebok</span>
         </div>
       </div>
-      <div class="cart-products">loading...</div>
+      <div class="wishes-products">loading...</div>
     </section>
     <template class="card">
       <div class="product-card">
@@ -101,7 +105,7 @@
       <div class="view-shoe">
         <div class="shoe-image-box">
           <img
-            src="../Assets/images/Products/product-1.jpg"
+            src="./src/Assets/images/Products/product-1.jpg"
             alt=""
             class="shoe-image"
           />
@@ -167,6 +171,6 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <!-- Custom JS -->
-    <script type="module" src="../JS/cartPageRender.js"></script>
+    <script type="module" src="./src/JS/wishlistPageRender.js"></script>
   </body>
 </html>

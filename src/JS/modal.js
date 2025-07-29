@@ -64,7 +64,9 @@ export default function showModalContent(
     }
     colors++;
     span.style.backgroundColor = c;
-    image.src = `/images/Products/colors/${c}.jpg`;
+    console.log(c);
+    image.src = `./src/Assets/images/Products/colors/${c}.jpg`;
+    console.log(image.src);
     colorContainer.appendChild(span);
     imageContainer.appendChild(image);
   });

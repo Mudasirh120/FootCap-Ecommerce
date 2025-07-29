@@ -841,7 +841,7 @@
     "discountPercentage": 0,
     "image": "./src/Assets/images/Products/product-6.jpg",
     "availableColors": ["Blue", "Red"],
-    "availableSizes": [6, 8, 10],
+    "availableSizes": [6, 8, 11],
     "gender": "Unisex",
     "tag": ["Special"],
     "quantity": 7,
